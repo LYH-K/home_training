@@ -1,6 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-
-<html lang="kor">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
    <!-- basic -->
@@ -102,8 +101,6 @@
 
    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet">
-
-
 </head>
 <!-- body -->
 
@@ -142,76 +139,50 @@
    </div>
    <!-- end header inner -->
    <!-- end header -->
-   <!-- pullup -->
+   <!-- explanation -->
    <section class="banner_main">
-      <button type="button" class="read_more" onclick="init()">Start</button>
-      <a href="/home_training/main"><input type="button" class="read_more" value="Stop" /></a>
-      <div><canvas id="canvas"></canvas></div>
-      <div id="label-container"></div>
-      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
-      <script type="text/javascript">
-         const URL = "https://teachablemachine.withgoogle.com/models/s6jbhnEZY/";
-         let model, webcam, ctx, labelContainer, maxPredictions;
-         async function init() {
-            const modelURL = URL + "model.json";
-            const metadataURL = URL + "metadata.json";
-
-            model = await tmPose.load(modelURL, metadataURL);
-            maxPredictions = model.getTotalClasses();
-            const size = 600;
-            const flip = true;
-            webcam = new tmPose.Webcam(size, size, flip);
-            await webcam.setup();
-            await webcam.play();
-            window.requestAnimationFrame(loop);
-            const canvas = document.getElementById("canvas");
-            canvas.width = size; canvas.height = size;
-            ctx = canvas.getContext("2d");
-            labelContainer = document.getElementById("label-container");
-            for (let i = 0; i < maxPredictions; i++) {
-               labelContainer.appendChild(document.createElement("div"));
-            }
-            var start = new Audio('/static/audiodata/pullup.mp3');
-            start.play();
-         }
-         async function loop(timestamp) {
-            webcam.update();
-            await predict();
-            window.requestAnimationFrame(loop);
-         }
-
-         var status = "ready";
-         var count = 0;
-
-         async function predict() {
-            const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
-            const prediction = await model.predict(posenetOutput);
-            if (prediction[0].probability.toFixed(2) >= 0.95) {
-               if (status == "up") {
-                  count++;
-                  var audio = new Audio('/static/audiodata/' + count % 10 + '.mp3')
-                  audio.play();
-               }
-               status = "ready";
-            } else if (prediction[1].probability.toFixed(2) >= 0.95) {
-               status = "up"
-            }
-            drawPose(pose);
-         }
-         function drawPose(pose) {
-            if (webcam.canvas) {
-               ctx.drawImage(webcam.canvas, 0, 0);
-               if (pose) {
-                  const minPartConfidence = 0.5;
-                  tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
-                  tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
-               }
-            }
-         }
-      </script>
+      <div class="Features">
+         <div class="container">ㄴ
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                      <h2>운동 설명</h2>
+                  </div>
+              </div>
+               <div class="col-md-4">
+                  <div class="Our_box">
+                     <a>
+                        <img src="/static/images/pushup_ready.jfif" />
+                        <h4>1. 땅 위에 눕는다. 발 끝을 세우고 팔로 몸통을 지탱한다. 팔꿈치가 90도 각도가 될 때까지 몸통을 땅으로 내린다. 몸 쪽으로 팔꿈치를 붙여 저항도를 높인다.
+                           얼굴은 앞을 본다. 코 끝이 곧바로 앞을 향하도록 말이다. 몸통은 평평한 플랭크 자세를 유지한다. 엉덩이를 내리거나 위로 치켜올리지 않는다. 가능한 몸을 일직선으로
+                           유지하는 것이 중요하다.</h4>
+                     </a>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="Our_box">
+                     <a>
+                        <img src="/static/images/pushup_down.jfif" />
+                        <h4>2. 땅바닥을 밀어내면서 몸통을 밀어내자. 밀어내면서 숨을 쉰다. 어깨와 가슴의 힘으로 밀어내야 한다. 삼각근(위쪽 팔 뒤에 위치한 근육) 역시 수축되야 하지만, 주요하게 쓰이는 근육은 아니다. 등이나 복부를 쓰기 보단 팔에 집중하자. 팔이 다시 일직선이 될 때까지 힘을 쓴다. 팔이 닫힌 자세가 되지 않도록 주의한다.</h4>
+                     </a>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="Our_box">
+                     <a>
+                        <img src="/static/images/pushup_recycle.jfif" />
+                        <h4>3. 내려갔다 올라오는 동작을 일정 속도로 계속 하자. 위 아래가 한 세트로 1회 동작이다. 정해진 횟수 또는 최대한 할 수 있는 만큼 한다.</h4>
+                     </a>
+                  </div>
+               </div>
+               <a href="/home_training/features"><input type="button" value="Back" /></a>
+               <a href="/home_training/pull"><input type="button" value="Next" /></a>
+            </div>
+         </div>
+      </div>
    </section>
-   <!-- end pullup -->
+
+   <!-- end explanation -->
    <!-- Javascript files-->
    <script src="/static/js/jquery.min.js"></script>
    <script src="/static/js/popper.min.js"></script>

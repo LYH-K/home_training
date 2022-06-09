@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.home_training.home.HomeTrainingMapper">
+    <select id="selectExercise" resultType="kr.co.home_training.home.Excercise">
+        SELECT DATE_FORMAT(DATE,'%Y.%m.%d') AS DATE, SUM(COUNT), EXCERCISE_NO
+        FROM EXCERCISE_RECORDS
+        GROUP BY EXCERCISE_NO
+        ORDER BY date DESC LIMIT 0,10
+    </select>
+    <insert id="insertPull" parameterType="kr.co.home_training.home.Excercise">
+        INSERT INTO EXCERCISE_RECORDS
+        ()
+    </insert>
+    <insert id="insertPush" parameterType="kr.co.home_training.home.Excercise">
+
+    </insert>
+    <insert id="insertSquirt" parameterType="kr.co.home_training.home.Excercise">
+
+    </insert>
+</mapper>

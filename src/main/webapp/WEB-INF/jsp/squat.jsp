@@ -102,8 +102,6 @@
 
    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet">
-
-
 </head>
 <!-- body -->
 
@@ -142,7 +140,7 @@
    </div>
    <!-- end header inner -->
    <!-- end header -->
-   <!-- pullup -->
+   <!-- squat -->
    <section class="banner_main">
       <button type="button" class="read_more" onclick="init()">Start</button>
       <a href="/home_training/main"><input type="button" class="read_more" value="Stop" /></a>
@@ -151,7 +149,7 @@
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
       <script type="text/javascript">
-         const URL = "https://teachablemachine.withgoogle.com/models/s6jbhnEZY/";
+         const URL = "https://teachablemachine.withgoogle.com/models/kdKYIf5Kd/";
          let model, webcam, ctx, labelContainer, maxPredictions;
          async function init() {
             const modelURL = URL + "model.json";
@@ -172,7 +170,7 @@
             for (let i = 0; i < maxPredictions; i++) {
                labelContainer.appendChild(document.createElement("div"));
             }
-            var start = new Audio('/static/audiodata/pullup.mp3');
+            var start = new Audio('/static/audiodata/squat.mp3');
             start.play();
          }
          async function loop(timestamp) {
@@ -188,14 +186,14 @@
             const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
             const prediction = await model.predict(posenetOutput);
             if (prediction[0].probability.toFixed(2) >= 0.95) {
-               if (status == "up") {
+               if (status == "down") {
                   count++;
                   var audio = new Audio('/static/audiodata/' + count % 10 + '.mp3')
                   audio.play();
                }
                status = "ready";
             } else if (prediction[1].probability.toFixed(2) >= 0.95) {
-               status = "up"
+               status = "down"
             }
             drawPose(pose);
          }
@@ -211,7 +209,7 @@
          }
       </script>
    </section>
-   <!-- end pullup -->
+   <!-- end squat -->
    <!-- Javascript files-->
    <script src="/static/js/jquery.min.js"></script>
    <script src="/static/js/popper.min.js"></script>

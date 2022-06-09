@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 
 @Component
-public class Users{
+public class Users implements Serializable{
     private String id;
     private String pw;
     private String name;

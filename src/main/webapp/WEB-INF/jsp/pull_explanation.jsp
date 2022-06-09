@@ -102,8 +102,6 @@
 
    <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet">
-
-
 </head>
 <!-- body -->
 
@@ -142,76 +140,43 @@
    </div>
    <!-- end header inner -->
    <!-- end header -->
-   <!-- pullup -->
+   <!-- explanation -->
    <section class="banner_main">
-      <button type="button" class="read_more" onclick="init()">Start</button>
-      <a href="/home_training/main"><input type="button" class="read_more" value="Stop" /></a>
-      <div><canvas id="canvas"></canvas></div>
-      <div id="label-container"></div>
-      <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
-      <script type="text/javascript">
-         const URL = "https://teachablemachine.withgoogle.com/models/s6jbhnEZY/";
-         let model, webcam, ctx, labelContainer, maxPredictions;
-         async function init() {
-            const modelURL = URL + "model.json";
-            const metadataURL = URL + "metadata.json";
-
-            model = await tmPose.load(modelURL, metadataURL);
-            maxPredictions = model.getTotalClasses();
-            const size = 600;
-            const flip = true;
-            webcam = new tmPose.Webcam(size, size, flip);
-            await webcam.setup();
-            await webcam.play();
-            window.requestAnimationFrame(loop);
-            const canvas = document.getElementById("canvas");
-            canvas.width = size; canvas.height = size;
-            ctx = canvas.getContext("2d");
-            labelContainer = document.getElementById("label-container");
-            for (let i = 0; i < maxPredictions; i++) {
-               labelContainer.appendChild(document.createElement("div"));
-            }
-            var start = new Audio('/static/audiodata/pullup.mp3');
-            start.play();
-         }
-         async function loop(timestamp) {
-            webcam.update();
-            await predict();
-            window.requestAnimationFrame(loop);
-         }
-
-         var status = "ready";
-         var count = 0;
-
-         async function predict() {
-            const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
-            const prediction = await model.predict(posenetOutput);
-            if (prediction[0].probability.toFixed(2) >= 0.95) {
-               if (status == "up") {
-                  count++;
-                  var audio = new Audio('/static/audiodata/' + count % 10 + '.mp3')
-                  audio.play();
-               }
-               status = "ready";
-            } else if (prediction[1].probability.toFixed(2) >= 0.95) {
-               status = "up"
-            }
-            drawPose(pose);
-         }
-         function drawPose(pose) {
-            if (webcam.canvas) {
-               ctx.drawImage(webcam.canvas, 0, 0);
-               if (pose) {
-                  const minPartConfidence = 0.5;
-                  tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
-                  tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
-               }
-            }
-         }
-      </script>
+      <div class="Features">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="Our_box">
+                     <a>
+                        <img src="/static/images/pull_ready.jpg" />
+                        <h4>1. 어깨너비보다 약간 더 넓은 자세로 오버핸드 그립(손목이 아애로 향하여 쥐는 형태) 자세로 점프하여 바를 잡는다.</h4>
+                    </a>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="Our_box">
+                     <a>
+                        <img src="/static/images/pull_up.jpg" />
+                        <h4>2. 등, 코어, 둔근을 자극하며 어깨뼈를 앞에서 뒤로 당긴다. 턱이 턱걸이 봉을 지날 때 까지 몸을 들어올린다.</h4>
+                    </a>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="Our_box">
+                     <a>
+                        <img src="/static/images/pull_recycle.jpg" />
+                        <h4>3. 천천히 몸을 내리며 다시 처음으로 돌아온다.</h4>
+                    </a>
+                  </div>
+               </div>
+               <a href="/home_training/features"><input type="button" value="Back" /></a>
+               <a href="/home_training/pull"><input type="button" value="Next" /></a>
+            </div>
+         </div>
+      </div>
    </section>
-   <!-- end pullup -->
+
+   <!-- end explanation -->
    <!-- Javascript files-->
    <script src="/static/js/jquery.min.js"></script>
    <script src="/static/js/popper.min.js"></script>

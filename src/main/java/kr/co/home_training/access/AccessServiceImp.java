@@ -12,8 +12,6 @@ public class AccessServiceImp implements AccessService{
 
     @Override
     public void login(Users users, HttpSession httpSession) {
-        System.out.println(accessMapper.selectUser(users));
-
         if (accessMapper.selectUser(users) == 1) {
             httpSession.setAttribute("id", users.getId());
         }

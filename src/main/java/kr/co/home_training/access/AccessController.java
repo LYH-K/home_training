@@ -27,11 +27,16 @@ public class AccessController {
     public ModelAndView Login (Users users, HttpSession httpSession) {
         ModelAndView mav = new ModelAndView(new RedirectView("main"));
 
-        System.out.println(users.getId());
-
         accessServiceImp.login(users, httpSession);
 
         return mav;
+    }
+
+    @GetMapping("/logout")
+    public ModelAndView logout (HttpSession httpSession) {
+        httpSession.invalidate();
+
+        return new ModelAndView(new RedirectView("home_training/login"));
     }
 
     @GetMapping("/sign")
