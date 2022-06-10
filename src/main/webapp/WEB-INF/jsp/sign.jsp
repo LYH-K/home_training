@@ -28,7 +28,77 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  <style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+  <style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+  <style type="text/css">
+    svg:not(:root).svg-inline--fa {
+      overflow: visible
+    }
+    .svg-inline--fa {
+      display: inline-block;
+      font-size: inherit;
+      height: 1em;
+      overflow: visible;
+      vertical-align: -.125em
+    }
+    .svg-inline--fa.fa-w-16 {
+      width: 1em
+    }
+    .fa-layers svg.svg-inline--fa {
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0
+    }
+    .fa-layers svg.svg-inline--fa {
+      -webkit-transform-origin: center center;
+      transform-origin: center center
+    }
+    .fa-ul > li {
+      position: relative
+    }
+    @-webkit-keyframes fa-spin {
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+      }
+    }
+    @keyframes fa-spin {
+      0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+      }
+    }
+    .hay{
+      text-decoration:none;
+    }
+    .hy {
+      text-decoration:none;
+      font-weight: bold;
+      color: #20c997;
+    }
+    .hy:hover {
+      color: #ffcd39;
+      font-weight: 1200;
+      -webkit-transform: scale(1.2,1.2);
+      -moz-transform: scale(1.2,1.2);
+      -o-transform: scale(1.2,1.2);
+      -ms-transform: scale(1.2,1.2);
+      transform: scale(1.2,1.2);
+    }</style>
+
+  <link rel="stylesheet" type="text/css" href="/static/css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet">
+</head>
 <!-- body -->
 
 <body class="main-layout">
@@ -38,6 +108,10 @@
 </div>
 <!-- end loader -->
 <!-- header -->
+<!-- end header inner -->
+<!-- end header -->
+<!-- login -->
+
 <header>
   <!-- header inner -->
   <div class="header">
@@ -47,19 +121,16 @@
           <div class="full">
             <div class="center-desk">
               <div class="logo">
-                <a href="/home_training/main">Home Training</a> <!-- <img src="images/logo.png" alt="#" /> -->
+                <img src="/static/images/logo.png" /><!-- <img src="images/logo.png" alt="#" /> -->
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </header>
-<!-- end header inner -->
-<!-- end header -->
-<!-- login -->
+
 <section class="banner_main">
   <div class="request">
     <div class="container">
@@ -70,28 +141,38 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <form class="main_form" id="request" action="/home_training/sign" method="post">
-            <div class="row">
-              <div class="col-md-12">
-                <input class="contactus" placeholder="ID" type="text" name="id">
-              </div>
-              <div class="col-md-12">
-                <input class="contactus" placeholder="Password" type="password" name="pw">
-              </div>
-              <div class="col-sm-12">
-                <input type="submit" class="send_btn" value="Sign up"></input>
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-8">
-          <div class="back_img">
-            <figure><img src="/static/images/img.jpg" alt="#"></figure>
+      <form class="main_form" id="request" action="/home_training/sign" method="post" style="
+    height: 380px;
+">
+        <div class="row">
+          <div class="col-md-12" style="
+    height: 100px;
+">
+            <input class="contactus" placeholder="ID" type="text" name="id" style="
+    height: 52.13334px;
+">
           </div>
+          <div class="col-md-12" style="padding-bottom:20px;">
+            <input class="contactus" placeholder="Password" type="password" name="pw" style="
+    height: 52.13334px;
+">
+          </div>
+          <table>
+            <tbody><tr><td>
+              <div class="col-sm-12">
+                <input type="submit" class="send_btn" value="Sign Up">
+              </div>
+            </td>
+              <td>
+                <div class="col-sm-12">
+                  <a href="/home_training/login"><input type="button" class="send_btn" value="Login"></a>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </section>
@@ -106,6 +187,5 @@
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/custom.js"></script>
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-
-
-</body></html>
+</body>
+</html>

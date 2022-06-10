@@ -9,7 +9,6 @@ public class Users implements Serializable{
     private String id;
     private String pw;
     private String name;
-    private String nickname;
 
     public Users() {}
 
@@ -36,8 +35,4 @@ public class Users implements Serializable{
     public String getPw() {
         return this.pw;
     }
-
-    public void setNickname (String name) { this.name = name; }
-
-    public String getNickname () { return this.nickname; }
 }

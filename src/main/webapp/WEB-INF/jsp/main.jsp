@@ -269,26 +269,12 @@
       </ul>
     </nav>
   </div>
-  <div>
-
-  </div>
-  <div class="card mb-4">
-    <div class="card-header">
-      <svg class="svg-inline--fa fa-chart-area fa-w-16 me-1" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chart-area" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
-        <path fill="currentColor" d="M500 384c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H12c-6.6 0-12-5.4-12-12V76c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v308h436zM372.7 159.5L288 216l-85.3-113.7c-5.1-6.8-15.5-6.3-19.9 1L96 248v104h384l-89.9-187.8c-3.2-6.5-11.4-8.7-17.4-4.7z"></path>
-      </svg>날짜 별 운동
-    </div>
-    <div id="chart-container"></div>
-    <div class="container-fluid px-5" style="margin-top: 50px;">
-    <div class="card mb-4">
-      <div class="card-header">
         <section>
           <div class="Features">
-            <div>
               <div class="row">
                 <div class="col-md-4">
                   <div class="Our_box">
-                    <a href="/home_training/push">
+                    <a href="/home_training/push_explanation">
                       <img src="/static/icon/pushup.png">
                       <h4>PUSH-UP</h4>
                     </a>
@@ -296,7 +282,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="Our_box">
-                    <a href="/home_training/pull">
+                    <a href="/home_training/pull_explanation">
                       <img src="/static/icon/pullup.png">
                       <h4>PULL-UP</h4>
                     </a>
@@ -304,13 +290,12 @@
                 </div>
                 <div class="col-md-4">
                   <div class="Our_box">
-                    <a href="/home_training/squat">
+                    <a href="/home_training/squat_explanation">
                       <img src="/static/icon/squat.png">
                       <h4>SQUAT</h4>
                     </a>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </section>

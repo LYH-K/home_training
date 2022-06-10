@@ -320,6 +320,7 @@ button {
 /** banner section **/
 
 .banner_main {
+     height: 100vh;
      background: url(../images/banner.jpg);
      background-repeat: no-repeat;
      display: flex;
@@ -400,6 +401,7 @@ button {
 .Features {
      background: #fff;
      margin: 90px 0;
+     border-radius: 40px;
 }
 
 .Features .titlepage h2 {

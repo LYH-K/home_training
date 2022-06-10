@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<html lang="kor">
+<html lang="ko">
 
 <head>
    <!-- basic -->
@@ -145,32 +145,37 @@
       <div class="Features">
          <div class="container">
             <div class="row">
-               <div class="col-md-4">
-                  <div class="Our_box">
-                     <a>
-                        <img src="/static/images/pull_ready.jpg" />
-                        <h4>1. 어깨너비보다 약간 더 넓은 자세로 오버핸드 그립(손목이 아애로 향하여 쥐는 형태) 자세로 점프하여 바를 잡는다.</h4>
-                    </a>
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>운동 설명</h2>
                   </div>
                </div>
                <div class="col-md-4">
                   <div class="Our_box">
-                     <a>
-                        <img src="/static/images/pull_up.jpg" />
-                        <h4>2. 등, 코어, 둔근을 자극하며 어깨뼈를 앞에서 뒤로 당긴다. 턱이 턱걸이 봉을 지날 때 까지 몸을 들어올린다.</h4>
-                    </a>
+                     <img src="/static/images/pull_ready.jpg" />
+                     <h4>1. 어깨너비보다 약간 더 넓은 자세로 오버핸드 그립(손목이 아애로 향하여 쥐는 형태) 자세로 점프하여 바를 잡는다.</h4>
                   </div>
                </div>
                <div class="col-md-4">
                   <div class="Our_box">
-                     <a>
-                        <img src="/static/images/pull_recycle.jpg" />
-                        <h4>3. 천천히 몸을 내리며 다시 처음으로 돌아온다.</h4>
-                    </a>
+                    <img src="/static/images/pull_up.jpg" />
+                    <h4>2. 등, 코어, 둔근을 자극하며 어깨뼈를 앞에서 뒤로 당긴다. 턱이 턱걸이 봉을 지날 때 까지 몸을 들어올린다.</h4>
                   </div>
                </div>
-               <a href="/home_training/features"><input type="button" value="Back" /></a>
-               <a href="/home_training/pull"><input type="button" value="Next" /></a>
+               <div class="col-md-4">
+                  <div class="Our_box">
+                    <img src="/static/images/pull_recycle.jpg" />
+                    <h4>3. 천천히 몸을 내리며 다시 처음으로 돌아온다.</h4>
+                  </div>
+               </div>
+               <table>
+                  <td>
+                    <input type="button" class="read_more" onclick="location.href='/home_training/main'" value="Back"/>
+                  </td>
+                  <td>
+                    <input type="button" class="read_more" onclick="location.href='/home_training/pull'" value="Next"/>
+                  </td>
+               </table>
             </div>
          </div>
       </div>

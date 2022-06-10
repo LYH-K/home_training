@@ -2,7 +2,7 @@ package kr.co.home_training.home;
 
 import java.io.Serializable;
 
-public class PullUp implements Serializable {
+public class PullUp extends Excercise implements Serializable {
     private final String NAME = "Pull-Up";
     private int count;
 

@@ -10,9 +10,10 @@
         GROUP BY EXCERCISE_NO
         ORDER BY date DESC LIMIT 0,10
     </select>
-    <insert id="insertPull" parameterType="kr.co.home_training.home.Excercise">
-        INSERT INTO EXCERCISE_RECORDS
-        ()
+    <insert id="insertPull" parameterType="kr.co.home_training.home.PullUp">
+        INSERT INTO PULL_RECOREDS
+        (NAME, COUNT)
+        VALUES(#{name}, #{count})
     </insert>
     <insert id="insertPush" parameterType="kr.co.home_training.home.Excercise">
 

@@ -101,13 +101,17 @@
 </head>
 <!-- body -->
 
-<body class="main-layout banner_main">
+<body class="main-layout">
 <!-- loader  -->
 <div class="loader_bg" style="display: none;">
   <div class="loader"><img src="/static/images/loading.gif" alt="#"></div>
 </div>
 <!-- end loader -->
 <!-- header -->
+<!-- end header inner -->
+<!-- end header -->
+<!-- login -->
+
 <header>
   <!-- header inner -->
   <div class="header">
@@ -117,7 +121,7 @@
           <div class="full">
             <div class="center-desk">
               <div class="logo">
-                <a href="/home_training/main"><img src="/static/images/logo.png"></a> <!-- <img src="images/logo.png" alt="#" /> -->
+                <img src="/static/images/logo.png" /><!-- <img src="images/logo.png" alt="#" /> -->
               </div>
             </div>
           </div>
@@ -126,10 +130,8 @@
     </div>
   </div>
 </header>
-<!-- end header inner -->
-<!-- end header -->
-<!-- login -->
-<section>
+
+<section class="banner_main">
   <div class="request">
     <div class="container">
       <div class="row">
@@ -139,31 +141,38 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <form class="main_form" id="request" action="/home_training/login" method="post">
-            <div class="row">
-              <div class="col-md-12">
-                <input class="contactus" placeholder="ID" type="text" name="id">
-              </div>
-              <div class="col-md-12" style="padding-bottom:20px;">
-                <input class="contactus" placeholder="Password" type="password" name="pw">
-              </div>
-              <div class="col-sm-12" style="padding-bottom: 15px;">
-                <input type="submit" class="send_btn" value="Login"></input>
-              </div>
-            </div>
-              <div class="col-sm-12">
-                <a href="/home_training/sign"><input type="button" class="send_btn" value="Sign in" /></a>
-              </div>
-          </form>
-        </div>
-        <div class="col-md-8">
-          <div class="back_img">
-            <figure><img src="/static/images/img.jpg" alt="#"></figure>
+      <form class="main_form" id="request" action="/home_training/login" method="post" style="
+    height: 380px;
+">
+        <div class="row">
+          <div class="col-md-12" style="
+    height: 100px;
+">
+            <input class="contactus" placeholder="ID" type="text" name="id" style="
+    height: 52.13334px;
+">
           </div>
+          <div class="col-md-12" style="padding-bottom:20px;">
+            <input class="contactus" placeholder="Password" type="password" name="pw" style="
+    height: 52.13334px;
+">
+          </div>
+          <table>
+            <tbody><tr><td>
+              <div class="col-sm-12">
+                <input type="submit" class="send_btn" value="Login">
+              </div>
+            </td>
+              <td>
+                <div class="col-sm-12">
+                  <a href="/home_training/sign"><input type="button" class="send_btn" value="Sign Up"></a>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </section>

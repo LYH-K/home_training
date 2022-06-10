@@ -143,9 +143,10 @@
    <!-- end header inner -->
    <!-- end header -->
    <!-- pullup -->
-   <section class="banner_main">
+   <section>
       <button type="button" class="read_more" onclick="init()">Start</button>
-      <a href="/home_training/main"><input type="button" class="read_more" value="Stop" /></a>
+      <button type="button" class="read_more" onclick="end()">End</button>
+      <button type="button" class="read_more" onclick="main()">Home</button>
       <div><canvas id="canvas"></canvas></div>
       <div id="label-container"></div>
       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -172,6 +173,7 @@
             for (let i = 0; i < maxPredictions; i++) {
                labelContainer.appendChild(document.createElement("div"));
             }
+
             var start = new Audio('/static/audiodata/pullup.mp3');
             start.play();
          }
@@ -208,6 +210,15 @@
                   tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
                }
             }
+         }
+
+         async function end() {
+            var end = new Audio('/static/audiodata/end.mp3');
+            end.play();
+         }
+
+         async function main() {
+            window.location.href = 'main';
          }
       </script>
    </section>

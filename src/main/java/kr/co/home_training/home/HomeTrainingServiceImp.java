@@ -1,5 +1,6 @@
 package kr.co.home_training.home;
 
+import kr.co.home_training.access.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,18 +12,18 @@ public class HomeTrainingServiceImp implements HomeTrainingService {
     HomeTrainingMapper homeTrainingMapper;
 
     @Override
-    public void insertPull(Excercise excercise) {
-        homeTrainingMapper.insertPull(excercise);
+    public void insertPull(Users users, Excercise excercise) {
+        homeTrainingMapper.insertPull(users, excercise);
     }
 
     @Override
-    public void insertPush(Excercise excercise) {
-        homeTrainingMapper.insertPush(excercise);
+    public void insertPush(Users users, Excercise excercise) {
+        homeTrainingMapper.insertPush(users, excercise);
     }
 
     @Override
-    public void insertSquirt(Excercise excercise) {
-        homeTrainingMapper.insertSquirt(excercise);
+    public void insertSquirt(Users users, Excercise excercise) {
+        homeTrainingMapper.insertSquirt(users, excercise);
     }
 
     @Override

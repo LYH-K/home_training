@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<html lang="ko">
 
 <head>
    <!-- basic -->
@@ -142,7 +143,7 @@
    <!-- explanation -->
    <section class="banner_main">
       <div class="Features">
-         <div class="container">ㄴ
+         <div class="container">
             <div class="row">
                <div class="col-md-12">
                   <div class="titlepage">
@@ -175,8 +176,14 @@
                      </a>
                   </div>
                </div>
-               <a href="/home_training/features"><input type="button" value="Back" /></a>
-               <a href="/home_training/pull"><input type="button" value="Next" /></a>
+               <table>
+                  <td>
+                     <input type="button" class="read_more" onclick="location.href='/home_training/main'" value="Back"/>
+                  </td>
+                  <td>
+                     <input type="button" class="read_more" onclick="location.href='/home_training/push'" value="Next"/>
+                  </td>
+               </table>
             </div>
          </div>
       </div>
